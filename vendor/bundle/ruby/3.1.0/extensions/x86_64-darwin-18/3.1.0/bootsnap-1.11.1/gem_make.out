@@ -1,0 +1,15 @@
+current directory: /Users/rafaelcosta/enterprises/Pref_Itauna/konstruct/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.11.1/ext/bootsnap
+/Users/rafaelcosta/.rbenv/versions/3.1.1/bin/ruby -I /Users/rafaelcosta/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20220319-94584-n7ow7u.rb extconf.rb
+creating Makefile
+
+current directory: /Users/rafaelcosta/enterprises/Pref_Itauna/konstruct/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/rafaelcosta/enterprises/Pref_Itauna/konstruct/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/rafaelcosta/enterprises/Pref_Itauna/konstruct/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20220319-94584-r4wwc9/bootsnap

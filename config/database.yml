@@ -1,0 +1,23 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['PG_HOST'] %>
+  port: <%= ENV.fetch('PG_PORT') { 5432 }%>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("PG_USER") { "" } %>
+  password: <%= ENV.fetch("PG_PWD") { "" } %>
+
+development:
+  <<: *default
+  database: konstruct_development
+
+test:
+  <<: *default
+  database: konstruct_test
+
+production:
+  <<: *default
+  database: konstruct_production
+  username: konstruct
+  password: <%= ENV["KONSTRUCT_DATABASE_PASSWORD"] %>
