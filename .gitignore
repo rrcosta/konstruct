@@ -35,3 +35,6 @@
 log/**/*.log
 *.log
 .pry_history
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
