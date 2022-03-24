@@ -1,15 +1,35 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+<div class="w-3/6 rounded overflow-hidden shadow-2xl ">
 
-    <%= render @person %>
+  <div class="px-8 py-7">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-teal-400" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+      </svg>
 
-    <%= link_to 'Edit this person', edit_person_path(@person), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this person', person_path(@person), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+      </svg>
     </div>
-    <%= link_to 'Back to people', people_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="font-bold text-xl mb-8"><%= @person.name %></div>
+  </div>
+
+  <div class="px-6 pt-4 pb-2">
+    <strong class="font-sans block font-light mb-2">Kind document:</strong><%= @person.kind_document %>
+  </div>
+
+  <div class="px-6 pt-4 pb-2">
+    <strong class="font-sans block font-light mb-2">Document:</strong><%= @person.document %>
+  </div>
+
+  <div class="px-6 pt-4 pb-2">
+    <strong class="font-sans block font-light mb-2">Email:</strong><%= @person.email %>
+  </div>
+
+  <div class="px-6 pt-4 ">
+    <%= link_to 'Edit this person', edit_person_path(@person), class: "font-sans rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>

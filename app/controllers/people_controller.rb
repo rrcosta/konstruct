@@ -3,7 +3,27 @@ class PeopleController < ApplicationController
 
   # GET /people or /people.json
   def index
-    @people = Person.all
+    if params[:query].present?
+      key = "%#{params[:query]}%"
+      columns = %w{name document email}
+
+      @people = Person.where(
+        columns
+        .map {|c| "#{c} like :search" }
+        .join(' OR '),
+        search: key
+      ).order(name: :asc)
+    else
+      @people = Person.all.order(name: :asc)
+    end
+
+    respond_to do |format|
+      if turbo_frame_request? && turbo_frame_request_id = 'searh_people'
+        format.html { render partial: 'people_table', locals: { people: @people } }
+      else
+        format.html
+      end
+    end
   end
 
   # GET /people/1 or /people/1.json
