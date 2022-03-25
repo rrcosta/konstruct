@@ -32,6 +32,8 @@ gem "bootsnap", require: false
 
 gem 'enumerate_it'
 
+gem "cpf_cnpj"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
