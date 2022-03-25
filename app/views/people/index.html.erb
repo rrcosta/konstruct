@@ -1,0 +1,29 @@
+
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-ligth rounded-lg inline-block" id="notice">
+      <%= notice %>
+    </p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-light text-2xl">Requerente</h1>
+    <%= link_to 'New person', new_person_path, class: "rounded-lg py-3 px-5 bg-teal-600 text-white block font-extralight text-base" %>
+  </div>
+
+  <div id="people">
+    <%= form_with url: people_path, method: :get, data: { turbo_frame: 'searh_people' } do |f| %>
+      <% f.text_field :query, value: params[:query], class: 'block shadow flex rounded-md border border-gray-200 font-extralight outline-none px-3 py-2 mt-2 w-full"', placeholder: 'Nome ou Documento'  %>
+    <% end %>
+    <br><br>
+    <div class="container">
+
+      <div class="flex flex-col justify-center mx-auto">
+          <div class="w-full">
+            <%= render 'people_table', people: @people %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

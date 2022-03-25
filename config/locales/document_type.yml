@@ -1,0 +1,5 @@
+en:
+  enumerations:
+    document_type:
+      cpf: 'Cpf'
+      cnpj: 'Cnpj'

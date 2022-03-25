@@ -89,6 +89,8 @@ GEM
       reline (>= 0.2.7)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    enumerate_it (3.2.2)
+      activesupport (>= 5.0.7.2)
     erubi (1.10.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -244,6 +246,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  enumerate_it
   factory_bot_rails
   faker
   importmap-rails
