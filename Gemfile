@@ -20,6 +20,7 @@ gem 'bootsnap', require: false
 gem 'enumerate_it'
 gem 'cpf_cnpj'
 gem 'simple_form'
+gem 'simple_form-tailwind'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
