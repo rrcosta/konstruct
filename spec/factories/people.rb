@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :person do
-    name { Faker::Name.name  }
-    kind_document { 1 }
-    document { Faker::CPF.number }
-    email { Faker::Internet.email }
+    name { FFaker::NameBR.first_name  }
+    kind_document { "cpf" }
+    document { FFaker::IdentificationBR.cpf }
+    email { FFaker::Internet.email }
   end
 end

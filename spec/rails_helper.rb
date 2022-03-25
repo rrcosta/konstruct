@@ -27,6 +27,7 @@ require 'rspec/rails'
 
 require_relative 'support/factory_bot'
 require_relative 'support/chrome'
+require_relative 'support/ffaker'
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -66,4 +67,13 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+end
+
+# Adds configura shoulda-matchers
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end

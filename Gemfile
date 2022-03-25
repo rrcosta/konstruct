@@ -32,6 +32,8 @@ gem "bootsnap", require: false
 
 gem 'enumerate_it'
 
+gem "cpf_cnpj"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -41,9 +43,10 @@ gem 'enumerate_it'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry-byebug'
   gem "rspec-rails"
   gem "factory_bot_rails"
-  gem "faker"
+  gem 'ffaker'
 end
 
 group :development do
@@ -62,4 +65,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers', '~> 5.0'
 end
