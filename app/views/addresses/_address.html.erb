@@ -1,0 +1,47 @@
+<div id="<%= dom_id address %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Person:</strong>
+    <%= address.person_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Street:</strong>
+    <%= address.street %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Number:</strong>
+    <%= address.number %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Neighborhood:</strong>
+    <%= address.neighborhood %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Complement:</strong>
+    <%= address.complement %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">City:</strong>
+    <%= address.city %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">State:</strong>
+    <%= address.state %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Postcode:</strong>
+    <%= address.postcode %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this address", address, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this address', edit_address_path(address), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
