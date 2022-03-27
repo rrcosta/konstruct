@@ -11,13 +11,15 @@
     <%= link_to 'New person', new_person_path, class: "rounded-lg py-3 px-5 bg-teal-600 text-white block font-extralight text-base" %>
   </div>
 
+
   <div id="people">
+  <div class="py-2 px-3 w-2/3">
     <%= form_with url: people_path, method: :get, data: { turbo_frame: 'searh_people' } do |f| %>
       <% f.text_field :query, value: params[:query], class: 'block shadow flex rounded-md border border-gray-200 font-extralight outline-none px-3 py-2 mt-2 w-full"', placeholder: 'Nome ou Documento'  %>
-    <% end %>
-    <br><br>
-    <div class="container">
+    <% end if action_name == 'index' %>
+  </div>
 
+    <div>
       <div class="flex flex-col justify-center mx-auto">
           <div class="w-full">
             <%= render 'people_table', people: @people %>
