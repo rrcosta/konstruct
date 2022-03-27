@@ -13,7 +13,7 @@
 
   <div class="my-5">
     <%= form.label :person_id %>
-    <%= form.text_field :person_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= collection_select(:post, :person_id, Person.all.order(name: :asc), :id, :name)%>
   </div>
 
   <div class="my-5">
