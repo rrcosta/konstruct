@@ -83,14 +83,13 @@ class PeopleController < ApplicationController
       @person = Person.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
-    def person_params
-      params.require(:person).permit(:name, :kind_document, :document, :email, data_address: data_address_params)
+    def data_address_params
+      params.require(:data_address).permit(:street, :number, :neighborhood, :complement, :city, :state, :zipcode)
     end
 
-    def data_address_params
-      {
-        :street, :number, :neighborhood, :complement, :city, :state, :zipcode
-      }
+    # Only allow a list of trusted parameters through.
+    def person_params
+      params.require(:person).permit(:name, :kind_document, :document, :email, :data_address => data_address_params)
     end
+
 end
