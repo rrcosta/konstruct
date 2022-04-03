@@ -19,7 +19,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if turbo_frame_request? && turbo_frame_request_id = 'searh_people'
-        format.html { render partial: 'people_table', locals: { people: @people } }
+        format.html { render partial: 'people_table', locals: { people: @people, address: @address } }
       else
         format.html
       end
@@ -33,6 +33,7 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
+    @address = @person.addresses.build
   end
 
   # GET /people/1/edit
@@ -42,6 +43,7 @@ class PeopleController < ApplicationController
   # POST /people or /people.json
   def create
     @person = Person.new(person_params)
+    #@address = Address.new(person_params[:addresses_attributes])
 
     respond_to do |format|
       if @person.save
@@ -80,11 +82,28 @@ class PeopleController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
-      @person = Person.find(params[:id])
+      @person  = Person.find(params[:id])
+      @address = Address.find_by_person_id(@person.id)
     end
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:name, :kind_document, :document, :email)
+      params.require(:person).permit(
+        :name,
+        :kind_document,
+        :document,
+        :email,
+        address_attributes: [
+          :id,
+          :street,
+          :number,
+          :neighborhood,
+          :complement,
+          :city,
+          :state,
+          :postcode,
+          :_destroy
+        ]
+      )
     end
 end

@@ -1,7 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Person, type: :model do
-  context 'Validations' do
+
+  describe 'associations' do
+   it { should have_many(:addresses) }
+  end
+
+  describe 'accepts_nested_attributes_for' do
+    it { should accept_nested_attributes_for(:addresses).limit(2) }
+  end
+
+  describe 'Validations' do
     it { is_expected.to validate_presence_of(:name) }
 
     describe 'document field' do
