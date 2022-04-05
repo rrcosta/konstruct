@@ -63,8 +63,19 @@
       <%= f.input :city, placeholder: 'Cidade residencia' %>
     </div>
 
-    <div class="w-full px-3 md:w-1/2 mb-1">
-      <%= f.input :state, placeholder: 'Estado' %>
+    <div class="w-full px-3 md:w-1/2 pt-5">
+      <!-- f.input :state, placeholder: 'Estado' -->
+
+      <%= collection_select(
+              :person,
+              :state,
+              State.list,
+              :itself,
+              :itself,
+              { include_blank: false },
+              { class: "appearance-none bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none" }
+            )
+          %>
     </div>
   </div>
 
