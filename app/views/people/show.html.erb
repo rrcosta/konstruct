@@ -1,23 +1,48 @@
 <%= turbo_frame_tag 'searh_people' do %>
   <div>
     <div class="px-8 py-7">
-      <div class="font-bold text-xl mb-3"><%= @person.name %></div>
-    </div>
+      <div class="px-8 py-2">
+        <h3 class="font-light text-2xl"><%= @person.name %></h3>
+      </div>
+      <hr>
 
-    <div class="px-6 pt-4 pb-2">
-      <strong class="font-sans block font-light mb-2">Kind document:</strong><%= @person.kind_document %>
-    </div>
+      <div class="px-8 py-7">
+        <strong class="font-sans inline font-light mb-4"></strong><%= @person.kind_document.upcase %>
+        <strong class="font-sans inline font-light mb-2"> - </strong><%= @person.document %>
+        <strong class="font-sans block font-light mb-1 py-3">Email:</strong><%= @person.email %>
+      </div>
 
-    <div class="px-6 pt-4 pb-2">
-      <strong class="font-sans block font-light mb-2">Document:</strong><%= @person.document %>
-    </div>
 
-    <div class="px-6 pt-4 pb-2">
-      <strong class="font-sans block font-light mb-2">Email:</strong><%= @person.email %>
-    </div>
+      <h3 class="font-light text-2xl px-8 py-7">Endereço</h3>
+      <hr>
+      <div class="px-8 py-7">
 
-    <div class="px-6 pt-4 mb-">
-      <%= link_to 'Edit this person', edit_person_path(@person), class: "font-sans rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+        <div class="px-6 pt-4 pb-2">
+          <strong class="font-sans inline font-light mb-2">Rua:  </strong><%= @person.street %>
+        </div>
+
+        <div class="px-6 pt-4 pb-2">
+          <strong class="font-sans inline font-light mb-2">Numero: </strong><%= @person.number %>
+        </div>
+
+        <div class="px-6 pt-4 pb-2">
+          <strong class="font-sans inline font-light mb-2">Bairro: </strong><%= @person.neighborhood %>
+        </div>
+
+        <div class="px-6 pt-4 pb-2">
+          <strong class="font-sans inline font-light mb-2">Complemento: </strong><%= @person.complement %>
+        </div>
+
+        <div class="px-6 pt-4 pb-2">
+          <strong class="font-sans inline font-light mb-2">Cidade: </strong><%= @person.city %>
+        </div>
+
+        <div class="px-6 pt-4 pb-2">
+          <strong class="font-sans inline font-light mb-2">Estado: </strong><%= @person.state %>
+        </div>
+      </div>
     </div>
   </div>
+
+  <%= render "actions", person: @person %>
 <% end %>

@@ -1,0 +1,7 @@
+<div class="p-2">
+  <%= form_with url: people_path, method: :get, data: { turbo_frame: 'searh_people' } do |f| %>
+    <% f.text_field :query, value: params[:query],
+                    class: 'block shadow flex rounded-md border border-gray-200 font-extralight outline-none px-3 py-3 mt-2 w-full"',
+                    placeholder: 'Nome ou Documento' %>
+  <% end %>
+</div>

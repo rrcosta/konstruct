@@ -1,31 +1,31 @@
-  <% if person.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+<% if person.errors.any? %>
+  <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
 
-      <ul>
-        <% person.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <ul>
+      <% person.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= simple_form_for person, defaults: { input_html: { class: 'form w-full max-w-lg' } } do |f| %>
-  <div class="flex flex-wrap -mx-3 mb-6 px-3">
+  <div class="flex flex-wrap px-3">
     <div class="w-full">
       <%= f.input :name,
                   placeholder: 'Nome do requerente',
                   input_html: {
-                    class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
+                    class: 'block w-full text-gray-700 border rounded mb-7 leading-tight focus:outline-none focus:bg-white'
                   }
       %>
     </div>
 
-    <div class="w-full md:w-1/2 px-3">
-      <%= f.input :document, placeholder: 'Numero do CPF OU CNPJ', input_html: { maxlength: 15 } %>
+    <div class="w-full md:w-1/4 px-3">
+      <%= f.input :document, placeholder: 'CPF OU CNPJ', input_html: { maxlength: 15 } %>
     </div>
 
-    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-3">
+    <div class="w-full md:w-1/4 px-5 mb-6 md:mb-3">
       <%= f.input :kind_document,
                   collection: [:cpf, :cnpj],
                   selected: :cpf,
@@ -36,17 +36,42 @@
     </div>
 
     <div class="w-full md:w-1/2 px-3">
-      <%= f.input :email,
-                  placeholder: 'user@domain.com',
-                  input_html: {
-                    class: 'lowercase block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
-                  }
-      %>
-   </div>
+      <%= f.input :email, placeholder: 'user@domain.com', input_html: { class: 'lowercase ' } %>
+    </div>
 
-    <div class="w-full">
-      <%#= f.button :submit %>
-      <%= f.submit class: 'ui teal button' %>
+    <div class="w-full px-3 md:w-1/7 mb-4">
+      <%= f.input :postcode, placeholder: 'CEP residencia', input_html: { maxlength: 8 }  %>
+    </div>
+
+    <div class="w-full px-3 md:w-2/4 mb-1">
+      <%= f.input :street, placeholder: 'Nome da Rua ou Avenida' %>
+    </div>
+
+    <div class="w-full px-3 md:w-1/4 mb-1">
+      <%= f.input :number, placeholder: 'Numero da residencia' %>
+    </div>
+
+    <div class="w-full px-3 md:w-1/2 mb-1">
+      <%= f.input :neighborhood, placeholder: 'Bairro residencia' %>
+    </div>
+
+    <div class="w-full px-3 md:w-1/2 mb-1">
+      <%= f.input :complement, placeholder: 'Complemento residencia' %>
+    </div>
+
+    <div class="w-full px-3 md:w-1/2 mb-1">
+      <%= f.input :city, placeholder: 'Cidade residencia' %>
+    </div>
+
+    <div class="w-full px-3 md:w-1/2 mb-1">
+      <%= f.input :state, placeholder: 'Estado' %>
     </div>
   </div>
+
+  <div class="w-full">
+    <%#= f.button :submit %>
+    <%= f.submit class: 'ui teal button' %>
+  </div>
+
+  <%= render "actions", person: @person %>
 <% end %>
