@@ -1,6 +1,8 @@
 require 'cpf_cnpj'
 
 class Person < ApplicationRecord
+  belongs_to :user
+
   validates :name, presence: true, length: { minimum:3 }
 
   validate :document_format
