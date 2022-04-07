@@ -16,7 +16,7 @@
       <%= f.input :name,
                   placeholder: 'Nome do requerente',
                   input_html: {
-                    class: 'block w-full text-gray-700 border rounded mb-7 leading-tight focus:outline-none focus:bg-white'
+                    class: 'block w-full text-gray-700 border rounded mb-7 leading-tight focus:outline-none focus:bg-white capitalize'
                   }
       %>
     </div>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="w-full px-3 md:w-1/2 mb-1">
-      <%= f.input :neighborhood, placeholder: 'Bairro residencia' %>
+      <%= f.input :neighborhood, placeholder: 'Bairro residencia', input_html: { class: 'capitalize' } %>
     </div>
 
     <div class="w-full px-3 md:w-1/2 mb-1">
@@ -60,7 +60,7 @@
     </div>
 
     <div class="w-full px-3 md:w-1/2 mb-1">
-      <%= f.input :city, placeholder: 'Cidade residencia' %>
+      <%= f.input :city, placeholder: 'Cidade residencia', input_html: { class: 'capitalize' } %>
     </div>
 
     <div class="w-full px-3 md:w-1/2 pt-5">

@@ -3,5 +3,13 @@
     <a class="flex items-center">
       <span class="self-center text-xl font-extralight whitespace-nowrap text-emerald-900 pt-3 pl-3">Secretaria Municipal de Regulação Urbana</span>
     </a>
+
+    <div class="self-center font-extralight whitespace-nowrap text-orange-200 pt-3 pl-3">
+      <% if current_user %>
+        <p>Olá <%= current_user.name %></p>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: 'leading-tight hover:bg-lime-600' %>
+      <% end %>
+    </div>
   </div>
 </nav>

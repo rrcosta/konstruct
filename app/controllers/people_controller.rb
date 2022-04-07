@@ -42,6 +42,7 @@ class PeopleController < ApplicationController
   # POST /people or /people.json
   def create
     @person = Person.new(person_params)
+    @person.user_id = set_user
 
     respond_to do |format|
       if @person.save
@@ -83,11 +84,15 @@ class PeopleController < ApplicationController
       @person = Person.find(params[:id])
     end
 
+    def set_user
+      current_user.id
+    end
+
     # Only allow a list of trusted parameters through.
     def person_params
       params.require(:person).permit(
         :name, :kind_document, :document, :email, :street, :number,
-        :neighborhood, :complement, :city, :state, :postcode
+        :neighborhood, :complement, :city, :state, :postcode, :user_id
       )
     end
 end
