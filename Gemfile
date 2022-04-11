@@ -17,11 +17,12 @@ gem 'jbuilder'
 gem 'redis', '~> 4.0'
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'bootsnap', require: false
-gem 'enumerate_it'
-gem 'cpf_cnpj'
-gem 'simple_form'
-gem 'simple_form-tailwind'
+gem 'enumerate_it', '~> 3.2', '>= 3.2.2'
+gem 'cpf_cnpj', '~> 0.5.0'
+gem 'simple_form', '~> 5.1'
+gem 'simple_form-tailwind', '~> 0.1.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'
+#gem 'breadcrumbs_on_rails', '~> 3.0', '>= 3.0.1'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -36,10 +37,10 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
-  gem 'pry-byebug'
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'ffaker'
+  gem 'pry-byebug', '~> 3.9'
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.1'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'ffaker', '~> 2.21'
 end
 
 group :development do
@@ -47,8 +48,8 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'capybara', '~> 3.36'
+  gem 'selenium-webdriver', '~> 4.1'
+  gem 'webdrivers', '~> 5.0'
   gem 'shoulda-matchers', '~> 5.0'
 end
