@@ -22,7 +22,7 @@ gem 'cpf_cnpj', '~> 0.5.0'
 gem 'simple_form', '~> 5.1'
 gem 'simple_form-tailwind', '~> 0.1.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'
-#gem 'breadcrumbs_on_rails', '~> 3.0', '>= 3.0.1'
+gem 'breadcrumbs_on_rails', '~> 3.0', '>= 3.0.1'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
