@@ -7,9 +7,11 @@ class ApplicationController < ActionController::Base
     #return unless session[:user_id]
     #@user ||= User.find(session[:user_id])
 
+    u_moment = session['warden.user.user.key'].try(:first).try(:last)
+
     @user ||= User.find(
-      session['warden.user.user.key'].first.last
-    )
+      u_moment
+    ) if u_moment.present?
   end
 
   def logged_in?
