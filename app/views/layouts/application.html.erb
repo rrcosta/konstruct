@@ -16,8 +16,9 @@
       <%= render 'shared/navbar' %>
 
       <div class="grid grid-cols-3">
-        <div class="col-span-1">
-          <%= render 'shared/breadcrumb' %>
+        <div class="col-span-1 flex py-5 pl-7">
+          <%#= render 'shared/breadcrumb' %>
+          <%= render_breadcrumbs :separator => " / " %>
         </div>
 
         <%#= render 'shared/menu' %>
