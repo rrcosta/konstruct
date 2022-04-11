@@ -1,6 +1,9 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: %i[ show edit update destroy ]
 
+  add_breadcrumb 'Requerente', :people_path, filter_options: { class: 'inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white' }
+
+
   # GET /people or /people.json
   def index
     if params[:query].present?
